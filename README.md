@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Introduction to Sanity
 
-## Getting Started
+Sanity is a powerful, open-source content management system (CMS) that offers flexibility for managing, customizing, and scaling content for various projects. Known for its real-time editing capabilities and customizable backend, Sanity is an ideal choice for websites, blogs, and e-commerce platforms where content needs to be updated frequently.
 
-First, run the development server:
+## Why Choose Sanity?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Sanity provides several key benefits:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Real-Time Collaboration**: Sanity's real-time editing allows multiple users to edit content simultaneously, which is invaluable for teams.
+2. **Headless CMS Architecture**: Sanity is a headless CMS, which means it separates the frontend and backend, giving developers more freedom to use any frontend framework or technology.
+3. **Customizable and Extensible**: Sanity Studio, the editing interface, is built using React and can be customized extensively to fit specific project needs.
+4. **API-First**: Sanity provides a GraphQL and REST API to easily access content, making it perfect for JAMstack applications.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started with Sanity
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To start using Sanity, follow these steps:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Install the Sanity CLI**: Run this command to install the Sanity CLI globally.
+   ```bash
+   npm install -g @sanity/cli
