@@ -1,21 +1,22 @@
 "use client";
 
+import React, { useState, useActionState } from "react";
 import { Input } from "@/components/ui/input";
-import React, { useActionState, useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import MDEditor from "@uiw/react-md-editor";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
-import { formSchema } from "@/validation";
+// import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+// import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [pitch, setPitch] = React.useState("");
+  const [pitch, setPitch] = useState("");
   const { toast } = useToast();
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
@@ -27,18 +28,19 @@ const StartupForm = () => {
         pitch,
       };
 
-      await formSchema.parseAsync(formValues);
-      // const result = await createIdea(prevState, formData, pitch)
+      console.log(formValues);
 
-      console.log(formValues)
+      // await formSchema.parseAsync(formValues);
 
-      // if (result.status === "SUCCESS") {
+      // const result = await createPitch(prevState, formData, pitch);
+
+      // if (result.status == "SUCCESS") {
       //   toast({
       //     title: "Success",
       //     description: "Your startup pitch has been created successfully",
       //   });
 
-      //   router.push(`/startup/${result.id}`);
+      //   router.push(`/startup/${result._id}`);
       // }
 
       // return result;
@@ -57,7 +59,7 @@ const StartupForm = () => {
       }
       toast({
         title: "Error",
-        description: "Please check your inputs and try again",
+        description: "An unexpected error has occurred",
         variant: "destructive",
       });
       return {
@@ -65,7 +67,6 @@ const StartupForm = () => {
         error: "An unexpected error has occurred",
         status: "ERROR",
       };
-    } finally {
     }
   };
 
@@ -87,6 +88,7 @@ const StartupForm = () => {
           required
           placeholder="Startup Title"
         />
+
         {errors.title && <p className="startup-form_error">{errors.title}</p>}
       </div>
 
@@ -101,6 +103,7 @@ const StartupForm = () => {
           required
           placeholder="Startup Description"
         />
+
         {errors.description && (
           <p className="startup-form_error">{errors.description}</p>
         )}
@@ -115,8 +118,9 @@ const StartupForm = () => {
           name="category"
           className="startup-form_input"
           required
-          placeholder="Startup Category (Tech, Health, Education ...)"
+          placeholder="Startup Category (Tech, Health, Education...)"
         />
+
         {errors.category && (
           <p className="startup-form_error">{errors.category}</p>
         )}
@@ -133,6 +137,7 @@ const StartupForm = () => {
           required
           placeholder="Startup Image URL"
         />
+
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
       </div>
 
@@ -140,6 +145,7 @@ const StartupForm = () => {
         <label htmlFor="pitch" className="startup-form_label">
           Pitch
         </label>
+
         <MDEditor
           value={pitch}
           onChange={(value) => setPitch(value as string)}
@@ -155,14 +161,16 @@ const StartupForm = () => {
             disallowedElements: ["style"],
           }}
         />
-        {errors.link && <p className="startup-form_error">{errors.link}</p>}
+
+        {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
       </div>
+
       <Button
         type="submit"
         className="startup-form_btn text-white"
         disabled={isPending}
       >
-        {isPending ? "Submitting ... " : "Submit Your Pitch"}
+        {isPending ? "Submitting..." : "Submit Your Pitch"}
         <Send className="size-6 ml-2" />
       </Button>
     </form>
