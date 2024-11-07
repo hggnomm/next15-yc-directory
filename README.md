@@ -53,3 +53,8 @@ export default {
 
 ![image](https://github.com/user-attachments/assets/bf7204f3-0e0a-4000-b7af-fbd44228c38d)
 
+Generate Type Automatic with Sanity 
+1. First, install package extract json sanity
+```
+npx sanity@latest schema extract --path=./sanity/extract.json
+```
