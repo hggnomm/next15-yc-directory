@@ -12,19 +12,6 @@ export default async function Home({
 
   const posts = await client.fetch(STARTUPS_QUERY);
 
-  console.log(JSON.stringify(posts, null, 2));
-  // const posts = [
-  //   {
-  //     _createdAt: new Date(),
-  //     views: 55,
-  //     author: { _id: 1, name: "Nam Tran Hoang" },
-  //     _id: 1,
-  //     description: "This is a description.",
-  //     image: "https://i.ytimg.com/vi/U27-y5fZ2dw/maxresdefault.jpg",
-  //     category: "Games",
-  //     title: "Omori",
-  //   },
-  // ];
   return (
     <div>
       <section className="pink_container">
